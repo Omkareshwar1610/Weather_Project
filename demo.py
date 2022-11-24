@@ -23,7 +23,7 @@ def timeManner(city):
     place = city +".json"
     f = open(place)
     data = json.load(f)
-    options = input("Please select the type of data you need :\n 1.Hourly \n 2.For Next 6 Hourly \n 3.For Next 5 days\n 4.Exit\n")
+    options = input("Please select the type of data you need :\n 1.Hourly \n 2.For Next 6 Hourly \n 3.For Next 5 days\n 4.Next 5 Days Sun Rise \n 5.Exit\n")
     while(options != None ):
         if options == "1":
             today(data,city)
@@ -35,7 +35,11 @@ def timeManner(city):
             nextFiveDays(data,city)
             return
         elif options == "4":
+            SunRise(data)
+            return
+        elif options == "5":
             selCity()
+
         else: 
             print("The selected input in invalid")
             sys.exit()       
@@ -69,4 +73,18 @@ def nextFiveDays(data,city):
        print()
        i = i+1
                 
+def SunRise(data):
+    Sun = data['5-day']
+    timeValue =[]
+    i = 0
+    a = []
+    while(i<5):
+        dateSplit = Sun[i]['Sun']['Rise']
+        timeValue =  dateSplit.split("T")[1]
+        a.append(timeValue)
+        i =i+1
+
+    print("the Sunrise time for 5 days are : ",a)
+    print("The Earliest Sun Rise Among 5 Days is",min(a))
+     
 selCity()
