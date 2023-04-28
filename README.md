@@ -1,4 +1,4 @@
-# Weather_project is a CLI based project which predicts the weather data of fuve major cities. 
+# Weather_project is a CLI based project which predicts the weather data of five major cities. 
 
 There are five cities namely Bangalore,Chennai,Delhi, Hyderabad & Mumbai accordingly of which the json file for the weather data are being stored..
 
